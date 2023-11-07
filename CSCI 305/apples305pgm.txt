@@ -1,0 +1,18 @@
+apples([match(berenice, _, _), match(gina, _, _), match(rachel, _, _), match(trisha, _, _)]).
+
+second(D, H) :- D =:= H + 4.
+fourth(B, A) :- B =:= A + 4.
+
+answer(X) :- apples(X),
+             member(match(berenice, A, blue), X), %A \= 20,
+             member(match(gina, B, C), X),
+             member(match(rachel, D, white), X),
+             member(match(trisha, E, F), X),
+             member(match(G, H, red), X),
+             member(match(I, J, green), X), %J \= 20,
+             member(match(K, 20, L), X), K \= berenice, K \= I,
+             member(match(M, 22, N), X),
+             member(match(O, 24, P), X),
+             member(match(Q, 26, R), X),
+             second(D, H),
+             fourth(B, A).

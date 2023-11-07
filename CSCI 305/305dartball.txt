@@ -1,0 +1,75 @@
+import "dart:html";
+import "dart:async";
+
+
+class MyScreen{
+  CanvasElement context = CanvasElement();
+  late CanvasRenderingContext2D ctx;
+  num x = 0;
+  num y = 0;
+  num vx = 0;
+  num vy = 0;
+  var ballRadius = 25;
+  
+  MyScreen(){
+    context = querySelector('#surface') as CanvasElement;
+    ctx = context.getContext('2d') as CanvasRenderingContext2D;
+    ctx.strokeStyle = "white";
+    //drawBall()
+    context.onClick.listen(drawMove);
+    Duration duration = Duration(milliseconds: 10);
+    Timer.periodic(duration, updateMovement);
+  }
+  
+  void clear(){ 
+    ctx.save();
+    ctx.fillStyle = "purple";
+    ctx.fillRect(0, 0, 400, 400);
+    ctx.restore();
+  }
+  
+  void drawMove(MouseEvent event){  
+    x = event.client.x;
+    y = event.client.y;     
+    vx = 0;
+    vy = 0;
+    clear();
+    drawBall();
+  }
+  
+  void updateMovement(Timer timer){
+    x += vx;
+    y += vy;
+    vx *= 0.99;
+    vy *= 0.99;
+    vx += 0.25;
+    vy += 0.25;
+    
+    if(x+ballRadius>400){
+      vx=-vx;
+    }
+     
+    if(y+ballRadius>400){
+      vy=-vy;
+    }
+        
+    clear();
+    drawBall();
+  }
+  
+  void drawBall(){
+    ctx.save();
+    ctx.fillStyle = "yellow";
+    ctx.beginPath();
+    ctx.arc(x, y, ballRadius, 0, 3.14*2);
+    ctx.closePath();
+    ctx.stroke();
+    ctx.fill();
+    ctx.restore();
+  }
+}
+
+
+void main() {
+   MyScreen();  
+}

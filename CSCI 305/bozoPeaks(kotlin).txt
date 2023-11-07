@@ -1,0 +1,61 @@
+data class Peaks(val name: String, val latitude: Double, val longitude: Double)
+
+val pk1 = Peaks("Gallatin Peak", 45.3683, -111.3658)
+val pk2 = Peaks("Granite Peak", 45.1633, -109.8080)
+val pk3 = Peaks("Whitetail Peak", 45.0888, -109.5877)
+val pk4 = Peaks("Pikes Peak", 38.8409, -105.0423)
+val pk5 = Peaks("Mount Rainier", 46.879967, -121.726906)
+
+fun listPeaks(): List<Peaks> {
+        return listOf(pk1, pk2, pk3, pk4, pk5)
+}
+
+fun haversine(lat1: Double, lon1: Double, lat2: Double, lon2: Double): Double {
+      val R = 6372.8
+      val l1 = Math.toRadians(lat1)
+      val l2 = Math.toRadians(lat2)
+      val dl = Math.toRadians(lat2-lat1)
+      val dr = Math.toRadians(lon2-lon1)
+      return 2 * R * Math.asin(Math.sqrt(Math.pow(Math.sin(dl/2),2.0) + Math.pow(Math.sin(dr/2),2.0) * Math.cos(l1) * Math.cos(l2)))
+}
+
+fun distanceFromBozeman(pk: Peaks): Double {
+        val bozoLat: Double = 45.6770
+        val bozoLon: Double = -111.0429
+        return haversine(bozoLat, bozoLon, pk.latitude, pk.longitude)
+}
+
+fun main() {
+        println("**********Step Two**********")
+        val peakLocations: List<Peaks> = listPeaks()
+        for (pk in peakLocations) println(pk)
+
+        println("**********Step Three**********")
+        println("The distancs between Bozeman and Whitetail is " + distanceFromBozeman(pk3))
+        
+        println("**********Step Four**********")
+        println("A new list with the distances from Bozeman for all peaks:")
+        val getDist: (Peaks) -> Double = {distanceFromBozeman(it)}
+        val dists = peakLocations.map(getDist)
+        println(dists)
+        
+        println("**********Step Five**********")
+        val far = peakLocations.filter{distanceFromBozeman(it)>500}
+        println("List of Peaks over 500KM from Bozeman")
+        for (pk in far) println(pk.name)
+        
+        println("**********Step Six**********")
+        val west = peakLocations.filter{it.longitude < -109.9541}
+        val pkNames: (Peaks) -> String = {it.name}
+        println(west.map(pkNames))
+    	
+        println("**********Step Seven**********")
+        val furthest = peakLocations.maxBy {it -> distanceFromBozeman(it)}
+        println("Max Distance: " + furthest)
+        
+        println("**********Step Eight**********")
+        val mappedPeaks: Map<String, Peaks> = peakLocations.map{it.name to it}.toMap()
+        mappedPeaks.forEach {println("Name ${it.key}: Peak ${it.value}")}
+        //val gallatinPk = mappedPeaks.get("Gallatin Peak")
+        println("The latitude for Gallatin is " + pk1.latitude)
+}
