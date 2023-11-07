@@ -1,0 +1,148 @@
+model Weapon_Decorator
+
+class Player
+attributes
+    name:String
+operations
+    equip()
+    getEquippedWeapon()
+        
+        begin
+        
+        --declare w:Weapon;
+        
+        for weap in Sword.allInstances do
+            weap.equip();
+        end
+        
+        end
+end    
+
+
+class Weapon < Player
+attributes
+    weaponName:String
+operations
+    equip()
+    getWeaponName()
+        begin
+            self.getEquippedWeapon();
+        --return self.weaponName;
+        end
+    
+end
+
+class Sword < Weapon
+attributes
+    weight:Integer
+    reach:Integer
+operations
+    equip()
+        begin
+            for swrd in WeaponDecorator.allInstances do
+                
+                swrd.equip()
+            end
+        end
+end
+
+class Axe < Weapon
+attributes
+    weight:Integer
+    reach:Integer
+operations
+    equip()
+end
+
+class Spear < Weapon
+attributes
+    weight:Integer
+    reach:Integer
+operations
+    equip()
+end
+
+
+class WeaponDecorator < Weapon
+attributes
+player:Player
+operations
+    equip()
+    
+        begin
+            
+        end
+end
+
+class Blade < WeaponDecorator
+attributes
+    type:String
+operations
+    equip()
+        begin
+        end
+end
+
+class Handle < WeaponDecorator
+attributes
+    type:String
+operations
+    equip()
+        begin
+        end
+end
+
+class Pommel < WeaponDecorator
+attributes
+    type:String
+operations
+    equip()
+        begin
+        end
+end
+
+class Grip < WeaponDecorator
+attributes
+    type:String
+operations
+    equip()
+        begin
+        end
+end
+
+association weaponType1 between
+  Weapon[1] role base
+  Spear[1] role type1
+end
+
+association weaponType2 between
+  Weapon[1] role base
+  Sword[1] role type2
+end
+
+association weaponType3 between
+  Weapon[1] role base
+  Axe[1] role type3
+end
+
+association weaponPart between
+  WeaponDecorator[1] role decorator
+  Blade[1] role part1
+  Handle[1] role part2
+  Grip[1] role part3
+  Pommel[1] role part4
+end
+
+association heldWeapon between
+  Player[1] role wielder
+  Weapon[1] role wielded
+end
+/*
+association wDecorator between
+    Weapon[1] role decorated
+    WeaponDecorator[1] partDecorator
+end
+*/
+
+
+
