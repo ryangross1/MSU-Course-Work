@@ -1,0 +1,99 @@
+model authenticator_authorizer
+
+class Client
+attributes
+operations
+    request()
+        begin 
+            
+            declare a:AuthenticatorAuthorizer, ra:RemoteAuthenticatorAuthorizer, pa:ProxyAuthenticatorAuthorizer;
+                a:=self.receiver1;
+                a.requestAccess();
+                
+                --declare ra:RemoteAuthenticatorAuthorizer;
+                ra := self.receiver2;
+                ra.requestAccess();
+                
+                --declare pa:ProxyAuthenticatorAuthorizer;
+                pa := self.receiver3;
+                pa.requestAccess();
+            
+        end
+    end
+
+class AuthenticatorAuthorizer
+    attributes
+    operations
+        requestAccess()
+            begin    
+            end
+    end
+
+class ProxyAuthenticatorAuthorizer < AuthenticatorAuthorizer
+    attributes
+    operations
+        requestAccess()
+            begin
+            end
+    end
+
+class RemoteAuthenticatorAuthorizer < AuthenticatorAuthorizer
+    attributes
+    operations
+        requestAccess()
+            begin
+                declare c1:AuthenticatorComponent, c2:AuthorizerComponent;
+                --declare c2:AuthorizerComponent;
+                c1 := self.comp1;
+                c2 := self.comp2;
+                c1.authenticate();
+                c2.authorize();
+            end
+    end
+
+class AuthenticatorComponent
+    attributes
+    operations
+        authenticate()
+            begin
+            end
+    end
+
+class AuthorizerComponent
+    attributes
+    operations
+        authorize()
+            begin
+            end
+    end
+
+association request1 between
+    Client [*] role sender1
+    AuthenticatorAuthorizer [1] role receiver1
+end
+
+association request2 between
+    Client [*] role sender2
+    RemoteAuthenticatorAuthorizer [1] role receiver2
+end
+
+association request3 between
+    Client [*] role sender3
+    ProxyAuthenticatorAuthorizer [1] role receiver3
+end
+
+association represents between
+    ProxyAuthenticatorAuthorizer [1] role rep1
+    RemoteAuthenticatorAuthorizer [1] role rep2
+end
+
+composition A1 between
+    RemoteAuthenticatorAuthorizer[1] role owner1
+    AuthenticatorComponent [1] role comp1
+end
+
+composition A2 between
+    RemoteAuthenticatorAuthorizer[1] role owner2
+    AuthorizerComponent [1] role comp2
+end
+
