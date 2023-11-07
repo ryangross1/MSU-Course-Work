@@ -1,0 +1,117 @@
+body {
+    font-family: 'Playfair Display', serif;
+    background-color: lightgrey;
+    margin: 0 auto;
+
+
+
+}
+
+#header {
+    background-color: #36BBD9;
+    height: 7em;
+    color: #f2f2f2;
+    font-size: 20px;
+    border-bottom: 5px solid;
+    border-color: white;
+
+}
+
+nav {
+    padding: 10px;
+
+
+}
+
+a {
+    color: #14D9B5;
+    text-decoration: none;
+}
+
+a:hover {
+    color: #36BBD9
+}
+
+header li {
+    display: inline;
+    padding: 10px;
+    border: 5px solid;
+    border-color: white;
+    background-color: #F23D7F;
+    margin-left: 30px;
+    margin-right: 30px;
+    border-radius: 20px;
+    font-family: 'Sora', sans-serif;
+    text-decoration: none;
+
+
+}
+
+header ul {
+    padding-top: 30px;
+    display: block;
+    margin-left: 7em;
+    margin-right: auto;
+    float: left;
+    text-decoration: none;
+
+}
+
+header img {
+    float: left;
+}
+
+
+
+#description {
+    background-color: #F25050;
+    color: #F2A03D;
+    text-align: left;
+    max-width: 700px;
+    padding: 5px;
+    font-family: 'Sora', sans-serif;
+    border-radius: 20px;
+}
+
+p {
+    text-align: left;
+    max-width: 700px;
+    font-family: 'Sora', sans-serif;
+}
+
+
+
+
+
+#flights {
+    display: block;
+    font-family: 'Sora', sans-serif;
+    text-align: center;
+    background-color: #14D9B5;
+
+
+}
+
+
+#contact {
+    float: right;
+    padding: 10px;
+    border: 5px solid;
+    border-color: white;
+    background-color: #F2A03D;
+    border-radius: 20px;
+    font-family: 'Sora', sans-serif;
+
+}
+
+.footer {
+    position: relative;
+    background-color: #36BBD9;
+    border-top: white solid 5px;
+    padding: 10px;
+}
+
+.footerp {
+    position: relative;
+    padding-bottom: 0px;
+}

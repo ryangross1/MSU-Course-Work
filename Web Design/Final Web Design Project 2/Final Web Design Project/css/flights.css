@@ -1,0 +1,141 @@
+#flights {
+    display: block;
+    font-family: 'Sora', sans-serif;
+    text-align: center;
+    background-color: #14D9B5;
+    margin-bottom: auto;
+    padding: 10px;
+    max-width: 900px;
+    margin-left: auto;
+    margin-right: auto;
+    border: 5px solid;
+    border-color: white;
+    border-radius: 25px;
+}
+
+#flight_1 {
+    display: block;
+    margin-top: 30px;
+    background-color: aqua;
+    border: 5px solid;
+    border-color: white;
+    border-radius: 10px;
+    margin-left: 10px;
+    margin-right: 10px;
+
+}
+
+#imgf1 {
+    height: 300px;
+    float: left;
+    padding: 30px;
+    background-color: aqua;
+    padding-right: 70px;
+
+}
+
+#pf {
+    display: bloc;
+    float: riht;
+    background-color: aqua;
+    max-width: 700px;
+    padding: 30px;
+    padding-left: 500px;
+    padding-top: 20px;
+    padding-bottom: 100px;
+
+}
+
+
+
+#imgf2 {
+    height: 300px;
+    float: left;
+    padding: 30px;
+
+    padding-right: 76px;
+}
+
+#pf2 {
+    display: blok;
+    float: riht;
+
+    max-width: 700px;
+    padding: 30px;
+    float: right;
+    padding-right: 100px;
+
+}
+
+#flight_2 {
+    margin-top: 30px;
+    border: 5px solid;
+    border-color: white;
+    height: 370px;
+    background-color: aqua;
+    border-radius: 10px;
+    margin-left: 10px;
+    margin-right: 10px;
+}
+
+#flight_3 {
+    margin-top: 30px;
+    border: 5px solid;
+    border-color: white;
+    height: 370px;
+    background-color: aqua;
+    border-radius: 10px;
+    margin-left: 10px;
+    margin-right: 10px;
+    margin-bottom: 10px;
+}
+
+#imgf3 {
+    height: 300px;
+    float: left;
+    padding: 30px;
+    padding-right: 76px;
+}
+
+h2 {
+    float: rigt;
+    font-family: 'Sora', sans-serif;
+    margin-bottom: auto
+}
+
+#h21 {
+    border: 5px solid;
+    margin-left: 500px;
+    margin-right: auto;
+    max-width: 200px;
+    text-align: center;
+    border-color: white;
+    border-radius: 25px;
+    background-color: #14D9B5;
+
+}
+
+#h22 {
+    border: 5px solid;
+    border-color: white;
+    border-radius: 25px;
+    background-color: #14D9B5;
+    max-width: 300px;
+    text-align: center;
+    margin-left: 690px;
+    margin-right: auto;
+
+
+
+}
+
+#h23 {
+    border: 5px solid;
+    border-color: white;
+    border-radius: 25px;
+    background-color: #14D9B5;
+    max-width: 300px;
+    text-align: center;
+    margin-left: 690px;
+    margin-right: auto;
+}

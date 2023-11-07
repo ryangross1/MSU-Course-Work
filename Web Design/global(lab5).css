@@ -1,0 +1,91 @@
+/*Add the styling needed to match the mockup. Refer to the styleguide for font and color info*/
+#top {
+    font-family: 'Roboto', sans-serif;
+    color: #125DC0;
+    border-bottom: 10px solid;
+    background-color: #39D0F2;
+    border-bottom-color:  #333333;
+    padding: 10px;
+    margin-bottom: none;
+    
+    
+}
+#bottom {
+    text-align: right;
+    color: #125DC0;
+    background-color: #39D0F2;
+    border-top: 10px solid;
+    border-top-color:   #333333;
+    padding: 10px;
+    font-family: 'Roboto', sans-serif;
+    margin-top: none;
+}
+body {
+    margin: 0;
+    font-family: 'Roboto', sans-serif;
+    background-color: #f33947;
+    
+}
+section {
+    width: 500px;
+    border-left: 10px solid;
+    border-right: 10px solid;
+    border-left-color: #333333;
+    border-right-color: #333333;
+    padding-top: 30px;
+    padding-bottom: 30px;
+    
+    margin-top: none;
+    margin-bottom: none;
+    margin-left: auto;
+    margin-right: auto;
+    background-color: #D9C35A
+    
+    
+}
+img {
+    width: 400px;
+    height: auto;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    border: 10px solid;
+    border-color: #333333;
+    
+        
+}
+h1 {
+    text-align: center;
+    font-size: 44px;
+    font-family: 'Luckiest Guy', cursive;
+    color: #125DC0;
+    background-color: #F2E85E;
+    margin-bottom: 30px;
+    
+        
+}
+h2 {
+    font-family: 'Luckiest Guy', cursive;
+    color: #125DC0;
+    background-color: #F2E85E;
+    padding-left: 20px;
+    padding-right: 20px;
+    font-size: 32px;
+    margin-top: 30px;
+    margin-bottom: 15px;
+}
+p {
+    background-color: #D9C35A;
+    padding-left: 20px;
+    padding-right: 20px;
+    font-family: 'Roboto', sans-serif;
+    font-size: 14px;
+    color: #333333;
+    font-weight: 700;
+    max-width: 500px;
+}
+span{
+    color: black;
+    font-size: 20px;
+    font-style: italic;
+}
